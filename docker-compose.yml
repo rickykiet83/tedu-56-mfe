@@ -1,0 +1,110 @@
+version: '3.9'
+
+services:
+  #database section
+  orderdb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    #open this line if you use mac Apple Chip (Mx)
+    platform: linux/amd64
+
+  productdb:
+    image: mysql
+    #open this line if you use mac Apple Chip (Mx)
+    platform: linux/amd64
+
+  customerdb:
+    image: postgres:alpine3.16
+
+  basketdb:
+    image: redis:alpine
+
+  inventorydb:
+    image: mongo
+
+  hangfiredb:
+    image: mongo
+
+  teduidentitydb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    #open this line if you use mac Apple Chip (Mx)
+    platform: linux/amd64
+
+#  #infrastructure section
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+
+  pgadmin:
+    image: dpage/pgadmin4
+
+  portainer:
+    image: portainer/portainer-ce
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.7
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.7
+
+  #microservices api section
+  product.api:
+    image: kietphamdev/tedu-microservice-product
+
+  customer.api:
+    image: kietphamdev/tedu-microservice-customer
+
+  basket.api:
+    image: kietphamdev/tedu-microservice-basket
+
+  ordering.api:
+    image: kietphamdev/tedu-microservice-ordering
+
+  inventory.product.api:
+    image: kietphamdev/tedu-microservice-inventory-product
+
+  inventory.grpc:
+    image: kietphamdev/tedu-microservice-inventory-grpc
+
+  apigw.ocelot:
+    image: kietphamdev/tedu-microservice-apigw-ocelot
+
+  hangfire.api:
+    image: kietphamdev/tedu-microservice-hangfire
+
+  saga.api:
+    image: kietphamdev/tedu-microservice-saga
+
+  identity.api:
+    image: kietphamdev/tedu-microservice-idp
+
+  webstatus:
+    image: kietphamdev/tedu-microservice-web-health
+
+#network section
+networks:
+  default:
+    name: tedu_microservices
+
+#volumes section
+volumes:
+  tedu_sqlserver_data:
+    name: tedu_sqlserver_data
+  tedu_mysql_data:
+    name: tedu_mysql_data
+  tedu_postgres_data:
+    name: tedu_postgres_data
+  tedu_portainer_data:
+    name: tedu_portainer_data
+  tedu_elasticsearch_data:
+    name: tedu_elasticsearch_data
+  tedu_jaeger_data:
+    name: tedu_jaeger_data
+  tedu_mongo_data:
+    name: tedu_mongo_data
+  tedu_hangfire_mongo_data:
+    name: tedu_hangfire_mongo_data
+  tedu_pgadmin_data:
+    name: tedu_pgadmin_data
+  tedu_rabbitmq_data:
+    name: tedu_rabbitmq_data
+  tedu_identity_sqlserver_data:
+    name: tedu_identity_sqlserver_data
