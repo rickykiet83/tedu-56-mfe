@@ -1,1 +1,23 @@
-## Infrastructure for Microfrontend App
+# Microfrontend Application Infrastructure Setup
+
+This README provides instructions to configure the infrastructure for a microfrontend application using Docker
+
+## Prerequisites
+
+Before starting, ensure you have the following installed on your machine:
+
+- [Docker](https://www.docker.com/get-started)
+- [DBeaver Community](https://dbeaver.io/download/)
+- [Compass](https://www.mongodb.com/products/tools/compass)
+
+
+## STEP 1: Create https certificate for identity service:
+- Create a .pfx file:
+  - MacOS: `dotnet dev-certs https -ep ${HOME}/.aspnet/https/tedu-idp.pfx -p password!`
+  - WindowsOS: `dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\tedu-idp.pfx -p password!`
+- Trust the file: `dotnet dev-certs https --trust`
+
+## STEP 2: How to run microservices api:
+- At the root folder, run command: `docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d --remove-orphans`
+- Open docker desktop and maker sure all the services are up and running
+- Open browser and navigate to [Web Health Status](http://localhost:6010/healthchecks-ui#/healthchecks)
