@@ -1,0 +1,1684 @@
+{
+	"info": {
+		"_postman_id": "a413f46d-ca08-4945-ad52-b43d6b86c5d9",
+		"name": ".Net Core Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1393969"
+	},
+	"item": [
+		{
+			"name": "Product API",
+			"item": [
+				{
+					"name": "Get Products",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/products?pageIndex=1&pageSize=10",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "searchTerm",
+									"value": "Chocolate",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "price desc",
+									"disabled": true
+								},
+								{
+									"key": "minPrice",
+									"value": "12",
+									"disabled": true
+								},
+								{
+									"key": "maxPrice",
+									"value": "19",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/products/:id",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product by No",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/products/get-product-by-no/:no",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"products",
+								"get-product-by-no",
+								":no"
+							],
+							"variable": [
+								{
+									"key": "no",
+									"value": "ChocolateCake"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"no\": \"test-1\",\n    \"name\": \"Esprit\",\n    \"summary\": \"Nondisplaced fracture of greater trochanter of right femur\",\n    \"description\": \"Nondisplaced fracture of greater trochanter of right femur\",\n    \"price\": 177940.49\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiGateway}}/products?pageIndex=1&pageSize=3&orderBy=price desc&minPrice=12&maxPrice=19",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "3"
+								},
+								{
+									"key": "orderBy",
+									"value": "price desc"
+								},
+								{
+									"key": "minPrice",
+									"value": "12"
+								},
+								{
+									"key": "maxPrice",
+									"value": "19"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"no\": \"PizzaMargherita\",\n    \"name\": \"Pizza Margherita\",\n    \"summary\": \"Classic Italian pizza with tomatoes, mozzarella cheese, and basil leaves.\",\n    \"description\": \"Pizza Margherita is a classic Italian pizza topped with tomatoes, mozzarella cheese, and basil leaves. It's a simple yet delicious dish loved by many.\",\n    \"price\": 12.99,\n    \"imageUrl\": \"https://images.unsplash.com/photo-1598023696416-0193a0bcd302?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UGl6emElMjBNYXJnaGVyaXRhfGVufDB8fDB8fHww\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiGateway}}/products/:id",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/products/:id",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer API",
+			"item": [
+				{
+					"name": "Get Customers",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{customerApiUrl}}/customers",
+							"host": [
+								"{{customerApiUrl}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/customers/:username",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"customers",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "tedu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Customer",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiGateway}}/customers",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiGateway}}/customers/customer1",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"customers",
+								"customer1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/customers/customer1",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"customers",
+								"customer1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Basket API",
+			"item": [
+				{
+					"name": "Get Basket By UserName",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/baskets/:username",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"baskets",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "tedu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Basket By UserName",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"tedu\",\n  \"emailAddress\": \"tedu@yopmail.com\",\n  \"items\": [\n    {\n      \"quantity\": 1,\n      \"itemPrice\": 1000,\n      \"itemNo\": \"ChocolateCake\",\n      \"itemName\": \"Chocolate Cake\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiGateway}}/baskets",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"baskets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Basket Checkout",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"tedu\",\n  \"firstName\": \"Kiet\",\n  \"lastName\": \"Pham\",\n  \"emailAddress\": \"kietpham.dev@example.com\",\n  \"shippingAddress\": \"Wollongong, Australia\",\n  \"invoiceAddress\": \"Sydney, Australia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiGateway}}/baskets/checkout/:username",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"baskets",
+								"checkout",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "tedu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Basket by UserName",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/baskets/:username",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"baskets",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "tedu"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order API",
+			"item": [
+				{
+					"name": "Get Orders By UserName",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/v1/orders/username/:username",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"v1",
+								"orders",
+								"username",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "tedu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order By Id",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/v1/orders/:id",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"v1",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userName\": \"tedu\",\n    \"totalPrice\": 100,\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"emailAddress\": \"tedu@yopmail.com\",\n    \"shippingAddress\": \"Wollongong, Australia\",\n    \"invoiceAddress\": \"Sydney, Australia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiGateway}}/v1/orders",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"totalPrice\": 10,\n  \"firstName\": \"Tedu\",\n  \"lastName\": \"Test\",\n  \"emailAddress\": \"tedu@yopmail.com\",\n  \"shippingAddress\": \"Vietnam\",\n  \"invoiceAddress\": \"Vietnam\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiGateway}}/v1/orders/:id",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"v1",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/v1/orders/:id",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"v1",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order By DocumentNo",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/v1/orders/document-no/:no",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"v1",
+								"orders",
+								"document-no",
+								":no"
+							],
+							"variable": [
+								{
+									"key": "no",
+									"value": "a408b714-87ba-4bee-9051-fd92955dce81"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inventory API",
+			"item": [
+				{
+					"name": "Get All By Item No",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/inventory/items/:itemNo",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"inventory",
+								"items",
+								":itemNo"
+							],
+							"variable": [
+								{
+									"key": "itemNo",
+									"value": "ChocolateCake"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All By Item No Paging",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/inventory/items/:itemNo/paging?pageIndex=1&pageSize=10",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"inventory",
+								"items",
+								":itemNo",
+								"paging"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "1"
+								},
+								{
+									"key": "searchTerm",
+									"value": "ed3777f6-bef9-4086-8d1f-85703c963837",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							],
+							"variable": [
+								{
+									"key": "itemNo",
+									"value": "ChocolateCake"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Purchase Item",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiGateway}}/inventory/purchase/:itemNo",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"inventory",
+								"purchase",
+								":itemNo"
+							],
+							"variable": [
+								{
+									"key": "itemNo",
+									"value": "ChocolateCake"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sales Item",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 2,\n  \"externalDocumentNo\": \"order-1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{inventoryApiUrl}}/inventory/sales/:itemNo",
+							"host": [
+								"{{inventoryApiUrl}}"
+							],
+							"path": [
+								"inventory",
+								"sales",
+								":itemNo"
+							],
+							"variable": [
+								{
+									"key": "itemNo",
+									"value": "ChocolateCake"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sales Order",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"saleItems\": [\n        {\n            \"itemNo\": \"ChocolateCake\",\n            \"quantity\": 2,\n            \"documentType\": 201\n        },\n        {\n            \"itemNo\": \"SushiRoll\",\n            \"quantity\": 2,\n            \"documentType\": 201\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{inventoryApiUrl}}/inventory/sales/order-no/:orderNo",
+							"host": [
+								"{{inventoryApiUrl}}"
+							],
+							"path": [
+								"inventory",
+								"sales",
+								"order-no",
+								":orderNo"
+							],
+							"variable": [
+								{
+									"key": "orderNo",
+									"value": "1f774a27-022e-4876-8b72-8a204d809327"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Iventory By Id",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/inventory/:itemId",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"inventory",
+								":itemId"
+							],
+							"variable": [
+								{
+									"key": "itemId",
+									"value": "6642eec6666a85bb2e395d5e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Id",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/inventory/:itemId",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"inventory",
+								":itemId"
+							],
+							"variable": [
+								{
+									"key": "itemId",
+									"value": "6643444a02677003c190e212"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Document No",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiGateway}}/inventory/document-no/:no",
+							"host": [
+								"{{apiGateway}}"
+							],
+							"path": [
+								"inventory",
+								"document-no",
+								":no"
+							],
+							"variable": [
+								{
+									"key": "no",
+									"value": "83dd751c-a0a0-4c57-ac65-43e2e3a84a01"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Checkout Saga Service",
+			"item": [
+				{
+					"name": "Basket Checkout SAGA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Tedu\",\n  \"lastName\": \"Pham\",\n  \"emailAddress\": \"tedu@yopmail.com\",\n  \"shippingAddress\": \"Wollongong, Australia\",\n  \"invoiceAddress\": \"Sydney, Australia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{checkoutSagaUrl}}/checkout/:username",
+							"host": [
+								"{{checkoutSagaUrl}}"
+							],
+							"path": [
+								"checkout",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "tedu"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Identity",
+			"item": [
+				{
+					"name": "Permission API",
+					"item": [
+						{
+							"name": "Get Permissions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{identityUrl}}/api/permissions/roles/:id",
+									"host": [
+										"{{identityUrl}}"
+									],
+									"path": [
+										"api",
+										"permissions",
+										"roles",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "b6105f01-18f5-433c-91e0-dbd80d27e7f4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Permission",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": false,
+								"strictSSL": false
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "scope",
+											"value": "tedu_microservices_api.read tedu_microservices_api.write openid",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "SuperStrongSecret",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "tedu_microservices_postman",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "alicesmith@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "alice123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{identityUrl}}/api/permissions/roles/:id/function/ROLE/command/ADD",
+									"host": [
+										"{{identityUrl}}"
+									],
+									"path": [
+										"api",
+										"permissions",
+										"roles",
+										":id",
+										"function",
+										"ROLE",
+										"command",
+										"ADD"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "b6105f01-18f5-433c-91e0-dbd80d27e7f4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Permission",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"function\": \"PRODUCT\",\n    \"command\": \"DELETE\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{identityUrl}}/api/permissions/roles/:id",
+									"host": [
+										"{{identityUrl}}"
+									],
+									"path": [
+										"api",
+										"permissions",
+										"roles",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "b6105f01-18f5-433c-91e0-dbd80d27e7f4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Permissions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"strictSSL": true,
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"function\": \"ROLE\",\n        \"command\": \"ADD\"\n    },\n    {\n        \"function\": \"ROLE\",\n        \"command\": \"UPDATE\"\n    },\n    {\n        \"function\": \"ROLE\",\n        \"command\": \"VIEW\"\n    },\n    {\n        \"function\": \"ROLE\",\n        \"command\": \"DELETE\"\n    },\n    {\n        \"function\": \"PRODUCT\",\n        \"command\": \"CREATE\"\n    },\n    {\n        \"function\": \"PRODUCT\",\n        \"command\": \"VIEW\"\n    },\n    {\n        \"function\": \"PRODUCT\",\n        \"command\": \"UPDATE\"\n    },\n    {\n        \"function\": \"PRODUCT\",\n        \"command\": \"DELETE\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{identityUrl}}/api/permissions/roles/:id/update-permissions",
+									"host": [
+										"{{identityUrl}}"
+									],
+									"path": [
+										"api",
+										"permissions",
+										"roles",
+										":id",
+										"update-permissions"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "b6105f01-18f5-433c-91e0-dbd80d27e7f4"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Account",
+					"item": [
+						{
+							"name": "Get Account Info",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{identityUrl}}/api/account",
+									"host": [
+										"{{identityUrl}}"
+									],
+									"path": [
+										"api",
+										"account"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"try {",
+									"    var response = pm.response.json();",
+									"    pm.environment.set('token', response.access_token);",
+									"}",
+									"catch (e) {",
+									"    console.log(e);",
+									"}",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false,
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "scope",
+									"value": "tedu_microservices_api.read tedu_microservices_api.write openid",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "SuperStrongSecret",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "tedu_microservices_postman",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "alicesmith@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "alice123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{identityUrl}}/connect/token",
+							"host": [
+								"{{identityUrl}}"
+							],
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Info",
+					"protocolProfileBehavior": {
+						"strictSSL": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{identityUrl}}/connect/userinfo",
+							"host": [
+								"{{identityUrl}}"
+							],
+							"path": [
+								"connect",
+								"userinfo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"try {",
+							"    var json = JSON.parse(responseBody);",
+							"    postman.setEnvironmentVariable(\"token\", json.token);",
+							"}",
+							"catch (e) {",
+							"    console.log(e);",
+							"}",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{apiGateway}}/api/token",
+					"host": [
+						"{{apiGateway}}"
+					],
+					"path": [
+						"api",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -33,12 +33,6 @@ services:
   rabbitmq:
     image: rabbitmq:3-management-alpine
 
-  pgadmin:
-    image: dpage/pgadmin4
-
-  portainer:
-    image: portainer/portainer-ce
-
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.7
 

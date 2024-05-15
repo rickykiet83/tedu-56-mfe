@@ -1,6 +1,6 @@
-# Microfrontend Application Infrastructure Setup
+# Micro Frontend Angular Application
 
-This README provides instructions to configure the infrastructure for a microfrontend application using Docker
+This README provides instructions to configure the infrastructure for a Micro Frontend application using Docker
 
 ## Prerequisites
 
