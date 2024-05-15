@@ -133,7 +133,7 @@ services:
       - "DatabaseSettings:ConnectionString=Server=tedu_productdb;Database=ProductDB;Uid=root;Pwd=PassWOrd"
       - "ApiConfiguration:ApiBaseUrl=http://product.api"
       - "ApiConfiguration:IdentityServerBaseUrl=http://localhost:6001"
-      - "ApiConfiguration:IssuerUri=http://tedu.identity.api"
+      - "ApiConfiguration:IssuerUri=http://identity.api"
     depends_on:
       - productdb
     ports:
@@ -218,7 +218,7 @@ services:
       - GlobalConfiguration:BaseUrl=http://apigw.ocelot
       - ApiConfiguration:ApiBaseUrl=http://apigw.ocelot
       - ApiConfiguration:IdentityServerBaseUrl=http://localhost:6001
-      - ApiConfiguration:IssuerUri=http://tedu.identity.api
+      - ApiConfiguration:IssuerUri=http://identity.api
     depends_on:
       - customer.api
       - basket.api
