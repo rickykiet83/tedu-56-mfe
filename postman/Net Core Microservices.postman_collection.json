@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a413f46d-ca08-4945-ad52-b43d6b86c5d9",
+		"_postman_id": "5b3b5486-f0c0-46e5-adc9-9146015181f8",
 		"name": ".Net Core Microservices",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "1393969"
@@ -54,7 +54,7 @@
 								},
 								{
 									"key": "maxPrice",
-									"value": "19",
+									"value": "20",
 									"disabled": true
 								}
 							]
@@ -151,34 +151,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{apiGateway}}/products?pageIndex=1&pageSize=3&orderBy=price desc&minPrice=12&maxPrice=19",
+							"raw": "{{apiGateway}}/products",
 							"host": [
 								"{{apiGateway}}"
 							],
 							"path": [
 								"products"
-							],
-							"query": [
-								{
-									"key": "pageIndex",
-									"value": "1"
-								},
-								{
-									"key": "pageSize",
-									"value": "3"
-								},
-								{
-									"key": "orderBy",
-									"value": "price desc"
-								},
-								{
-									"key": "minPrice",
-									"value": "12"
-								},
-								{
-									"key": "maxPrice",
-									"value": "19"
-								}
 							]
 						}
 					},
@@ -204,7 +182,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"no\": \"PizzaMargherita\",\n    \"name\": \"Pizza Margherita\",\n    \"summary\": \"Classic Italian pizza with tomatoes, mozzarella cheese, and basil leaves.\",\n    \"description\": \"Pizza Margherita is a classic Italian pizza topped with tomatoes, mozzarella cheese, and basil leaves. It's a simple yet delicious dish loved by many.\",\n    \"price\": 12.99,\n    \"imageUrl\": \"https://images.unsplash.com/photo-1598023696416-0193a0bcd302?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UGl6emElMjBNYXJnaGVyaXRhfGVufDB8fDB8fHww\"\n}",
+							"raw": "{\n    \"name\": \"Pizza Margherita\",\n    \"summary\": \"Classic Italian pizza with tomatoes, mozzarella cheese, and basil leaves.\",\n    \"description\": \"Pizza Margherita is a classic Italian pizza topped with tomatoes, mozzarella cheese, and basil leaves. It's a simple yet delicious dish loved by many.\",\n    \"price\": 12.99,\n    \"imageUrl\": \"https://images.unsplash.com/photo-1598023696416-0193a0bcd302?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UGl6emElMjBNYXJnaGVyaXRhfGVufDB8fDB8fHww\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -223,7 +201,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "10"
+									"value": "7"
 								}
 							]
 						}
@@ -260,7 +238,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "10"
+									"value": "7"
 								}
 							]
 						}
@@ -1240,12 +1218,11 @@
 									}
 								],
 								"url": {
-									"raw": "{{identityUrl}}/api/permissions/roles/:id",
+									"raw": "{{apiGateway}}/permissions/roles/:id",
 									"host": [
-										"{{identityUrl}}"
+										"{{apiGateway}}"
 									],
 									"path": [
-										"api",
 										"permissions",
 										"roles",
 										":id"
@@ -1269,7 +1246,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1332,12 +1310,11 @@
 									]
 								},
 								"url": {
-									"raw": "{{identityUrl}}/api/permissions/roles/:id/function/ROLE/command/ADD",
+									"raw": "{{apiGateway}}/permissions/roles/:id/function/ROLE/command/ADD",
 									"host": [
-										"{{identityUrl}}"
+										"{{apiGateway}}"
 									],
 									"path": [
-										"api",
 										"permissions",
 										"roles",
 										":id",
@@ -1365,7 +1342,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1395,12 +1373,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{identityUrl}}/api/permissions/roles/:id",
+									"raw": "{{apiGateway}}/permissions/roles/:id",
 									"host": [
-										"{{identityUrl}}"
+										"{{apiGateway}}"
 									],
 									"path": [
-										"api",
 										"permissions",
 										"roles",
 										":id"
@@ -1424,7 +1401,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1447,7 +1425,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "[\n    {\n        \"function\": \"ROLE\",\n        \"command\": \"ADD\"\n    },\n    {\n        \"function\": \"ROLE\",\n        \"command\": \"UPDATE\"\n    },\n    {\n        \"function\": \"ROLE\",\n        \"command\": \"VIEW\"\n    },\n    {\n        \"function\": \"ROLE\",\n        \"command\": \"DELETE\"\n    },\n    {\n        \"function\": \"PRODUCT\",\n        \"command\": \"CREATE\"\n    },\n    {\n        \"function\": \"PRODUCT\",\n        \"command\": \"VIEW\"\n    },\n    {\n        \"function\": \"PRODUCT\",\n        \"command\": \"UPDATE\"\n    },\n    {\n        \"function\": \"PRODUCT\",\n        \"command\": \"DELETE\"\n    }\n]",
+									"raw": "[\n    {\n        \"function\": \"ROLE\",\n        \"command\": \"CREATE\"\n    },\n    {\n        \"function\": \"ROLE\",\n        \"command\": \"UPDATE\"\n    },\n    {\n        \"function\": \"ROLE\",\n        \"command\": \"VIEW\"\n    },\n    {\n        \"function\": \"ROLE\",\n        \"command\": \"DELETE\"\n    },\n    {\n        \"function\": \"PRODUCT\",\n        \"command\": \"CREATE\"\n    },\n    {\n        \"function\": \"PRODUCT\",\n        \"command\": \"VIEW\"\n    },\n    {\n        \"function\": \"PRODUCT\",\n        \"command\": \"UPDATE\"\n    },\n    {\n        \"function\": \"PRODUCT\",\n        \"command\": \"DELETE\"\n    }\n]",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1455,12 +1433,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{identityUrl}}/api/permissions/roles/:id/update-permissions",
+									"raw": "{{apiGateway}}/permissions/roles/:id/update-permissions",
 									"host": [
-										"{{identityUrl}}"
+										"{{apiGateway}}"
 									],
 									"path": [
-										"api",
 										"permissions",
 										"roles",
 										":id",
@@ -1509,8 +1486,7 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
+										"value": "application/json"
 									}
 								],
 								"url": {
@@ -1642,43 +1618,6 @@
 					"response": []
 				}
 			]
-		},
-		{
-			"name": "Get Token",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"try {",
-							"    var json = JSON.parse(responseBody);",
-							"    postman.setEnvironmentVariable(\"token\", json.token);",
-							"}",
-							"catch (e) {",
-							"    console.log(e);",
-							"}",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{apiGateway}}/api/token",
-					"host": [
-						"{{apiGateway}}"
-					],
-					"path": [
-						"api",
-						"token"
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }
