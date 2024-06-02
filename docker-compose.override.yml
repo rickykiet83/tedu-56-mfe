@@ -19,7 +19,7 @@ services:
   productdb:
     container_name: tedu_productdb
     ## do not use this command in Windows
-    command: [ "--default-authentication-plugin=mysql_native_password" ]
+    # command: [ "--default-authentication-plugin=mysql_native_password" ]
     environment:
       MYSQL_ROOT_PASSWORD: "PassWOrd"
       MYSQL_DATABASE: "ProductDB"

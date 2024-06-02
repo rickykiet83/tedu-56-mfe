@@ -5,12 +5,12 @@ services:
   orderdb:
     image: mcr.microsoft.com/mssql/server:2022-latest
     #open this line if you use mac Apple Chip (Mx)
-    platform: linux/amd64
+    # platform: linux/amd64
 
   productdb:
     image: mysql
     #open this line if you use mac Apple Chip (Mx)
-    platform: linux/amd64
+    # platform: linux/amd64
 
   customerdb:
     image: postgres:alpine3.16
@@ -27,7 +27,7 @@ services:
   teduidentitydb:
     image: mcr.microsoft.com/mssql/server:2022-latest
     #open this line if you use mac Apple Chip (Mx)
-    platform: linux/amd64
+    # platform: linux/amd64
 
 #  #infrastructure section
   rabbitmq:
