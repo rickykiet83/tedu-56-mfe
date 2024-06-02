@@ -5,7 +5,8 @@
   "scripts": {
     "shell:dev": "nx serve shell",
     "catalog:dev": "nx serve catalog",
-    "run:all": "nx run-many --target=serve --projects=shell,catalog"
+    "run:all": "nx run-many --target=serve --projects=shell,catalog",
+    "build:all": "nx run-many --target=build --projects=shell,catalog"
   },
   "private": true,
   "dependencies": {
