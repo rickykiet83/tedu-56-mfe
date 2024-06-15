@@ -1,3 +1,7 @@
+## Microfrontend Angular Mastery Course:
+
+- You can access the Microfrontends Angular Mastery Course on Tedu: [https://tedu.com.vn/khoa-hoc](https://tedu.com.vn/course-ref/56/C5D7O1.html)
+
 # Micro Frontend Angular Application
 
 This README provides instructions to configure the infrastructure for a Micro Frontend application using Docker
