@@ -21,7 +21,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{apiGateway}}/products?pageIndex=1&pageSize=10",
+							"raw": "{{apiGateway}}/products",
 							"host": [
 								"{{apiGateway}}"
 							],
@@ -31,15 +31,17 @@
 							"query": [
 								{
 									"key": "pageIndex",
-									"value": "1"
+									"value": "1",
+									"disabled": true
 								},
 								{
 									"key": "pageSize",
-									"value": "10"
+									"value": "10",
+									"disabled": true
 								},
 								{
 									"key": "searchTerm",
-									"value": "Chocolate",
+									"value": "Choc ",
 									"disabled": true
 								},
 								{
@@ -49,12 +51,12 @@
 								},
 								{
 									"key": "minPrice",
-									"value": "12",
+									"value": "0",
 									"disabled": true
 								},
 								{
 									"key": "maxPrice",
-									"value": "20",
+									"value": "0",
 									"disabled": true
 								}
 							]
@@ -1238,6 +1240,58 @@
 							"response": []
 						},
 						{
+							"name": "Get User Permissions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{apiGateway}}/permissions/users/:id",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"permissions",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Delete Permission",
 							"event": [
 								{
@@ -1612,6 +1666,38 @@
 							"path": [
 								"connect",
 								"userinfo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment API",
+			"item": [
+				{
+					"name": "create-checkout-session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"products\": [\n    {\n      \"price\": 20.99,\n      \"name\": \"Chocolate Cake\",\n      \"description\": \"Chocolate Cake is a decadent dessert featuring layers of rich chocolate cake with creamy frosting. It's a must-try for chocolate lovers.\",\n      \"imageUrl\": \"https://images.unsplash.com/photo-1626263468007-a9e0cf83f1ac?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fENob2NvbGF0ZSUyMENha2V8ZW58MHx8MHx8fDA%3D\"\n    },\n    {\n      \"price\": 15.49,\n      \"name\": \"Chicken Parmesan\",\n      \"description\": \"Chicken Parmesan is a popular Italian-American dish featuring breaded chicken breast topped with marinara sauce and melted cheese, typically served with pasta.\",\n      \"imageUrl\": \"https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q2hpY2tlbiUyMFBhcm1lc2FufGVufDB8fDB8fHww\"\n    }\n  ],\n  \"quantity\": 1,\n  \"metadata\": {\n  },\n  \"successRedirectUrl\": \"http://localhost:4200/checkout/confirmation\",\n  \"cancelRedirectUrl\": \"http://localhost:4200/checkout/cancel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{paymentUrl}}/payments/create-checkout-session",
+							"host": [
+								"{{paymentUrl}}"
+							],
+							"path": [
+								"payments",
+								"create-checkout-session"
 							]
 						}
 					},
