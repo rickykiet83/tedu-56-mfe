@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   #database section
   orderdb:
@@ -69,6 +67,9 @@ services:
 
   identity.api:
     image: kietphamdev/tedu-microservice-idp
+
+  payment.api:
+    image: kietphamdev/tedu-payment-api
 
   webstatus:
     image: kietphamdev/tedu-microservice-web-health
