@@ -69,7 +69,7 @@ services:
     image: kietphamdev/tedu-microservice-idp
 
   payment.api:
-    image: kietphamdev/tedu-payment-api
+    image: kietphamdev/tedu-microservice-payment-api
 
   webstatus:
     image: kietphamdev/tedu-microservice-web-health
