@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5b3b5486-f0c0-46e5-adc9-9146015181f8",
+		"_postman_id": "dff989b8-9c56-4f53-979b-351c45c3d4a5",
 		"name": ".Net Core Microservices",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "1393969"
@@ -253,7 +253,7 @@
 			"name": "Customer API",
 			"item": [
 				{
-					"name": "Get Customers",
+					"name": "Get Customer By Username",
 					"protocolProfileBehavior": {
 						"strictSSL": false
 					},
@@ -271,12 +271,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{customerApiUrl}}/customers",
+							"raw": "{{apiGateway}}/customers/username/:username",
 							"host": [
-								"{{customerApiUrl}}"
+								"{{apiGateway}}"
 							],
 							"path": [
-								"customers"
+								"customers",
+								"username",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "tedu"
+								}
 							]
 						}
 					},
@@ -301,18 +309,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{apiGateway}}/customers/:username",
+							"raw": "{{apiGateway}}/customers/:id",
 							"host": [
 								"{{apiGateway}}"
 							],
 							"path": [
 								"customers",
-								":username"
+								":id"
 							],
 							"variable": [
 								{
-									"key": "username",
-									"value": "tedu"
+									"key": "id",
+									"value": "1"
 								}
 							]
 						}
@@ -339,7 +347,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\n    \"firstName\": \"K\",\n    \"lastName\": \"Pham\",\n    \"emailAddress\": \"customer4@local.com\",\n    \"address\": {\n        \"country\": \"AU\",\n        \"city\": \"Wollongong\",\n        \"line1\": \"Wollongong Central\",\n        \"line2\": \"\",\n        \"postal_code\": \"2500\",\n        \"state\": \"NSW\"\n    },\n    \"phone\": \"+6112345678\",\n    \"shipping\": {\n        \"country\": \"AU\",\n        \"city\": \"Wollongong\",\n        \"line1\": \"Wollongong Central\",\n        \"line2\": \"\",\n        \"postal_code\": \"2500\",\n        \"state\": \"NSW\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -378,7 +386,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\n    \"firstName\": \"K\",\n    \"lastName\": \"Pham\",\n    \"stripeCustomerId\": \"cus_QQHyX2VK5NQ0Kv\",\n    \"address\": {\n        \"country\": \"AU\",\n        \"city\": \"Wollongong\",\n        \"line1\": \"Wollongong Central\",\n        \"line2\": \"\",\n        \"postal_code\": \"2500\",\n        \"state\": \"NSW\"\n    },\n    \"phone\": \"+6112345678\",\n    \"shipping\": {\n        \"country\": \"AU\",\n        \"city\": \"Wollongong\",\n        \"line1\": \"Wollongong Central\",\n        \"line2\": \"\",\n        \"postal_code\": \"2500\",\n        \"state\": \"NSW\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -386,13 +394,19 @@
 							}
 						},
 						"url": {
-							"raw": "{{apiGateway}}/customers/customer1",
+							"raw": "{{apiGateway}}/customers/:id",
 							"host": [
 								"{{apiGateway}}"
 							],
 							"path": [
 								"customers",
-								"customer1"
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
 							]
 						}
 					},
@@ -417,13 +431,19 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{apiGateway}}/customers/customer1",
+							"raw": "{{customerApiUrl}}/customers/:id",
 							"host": [
-								"{{apiGateway}}"
+								"{{customerApiUrl}}"
 							],
 							"path": [
 								"customers",
-								"customer1"
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
 							]
 						}
 					},
@@ -1683,7 +1703,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"products\": [\n    {\n      \"price\": 20.99,\n      \"name\": \"Chocolate Cake\",\n      \"description\": \"Chocolate Cake is a decadent dessert featuring layers of rich chocolate cake with creamy frosting. It's a must-try for chocolate lovers.\",\n      \"imageUrl\": \"https://images.unsplash.com/photo-1626263468007-a9e0cf83f1ac?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fENob2NvbGF0ZSUyMENha2V8ZW58MHx8MHx8fDA%3D\"\n    },\n    {\n      \"price\": 15.49,\n      \"name\": \"Chicken Parmesan\",\n      \"description\": \"Chicken Parmesan is a popular Italian-American dish featuring breaded chicken breast topped with marinara sauce and melted cheese, typically served with pasta.\",\n      \"imageUrl\": \"https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q2hpY2tlbiUyMFBhcm1lc2FufGVufDB8fDB8fHww\"\n    }\n  ],\n  \"quantity\": 1,\n  \"metadata\": {\n  },\n  \"successRedirectUrl\": \"http://localhost:4200/checkout/confirmation\",\n  \"cancelRedirectUrl\": \"http://localhost:4200/checkout/cancel\"\n}",
+							"raw": "{\n    \"products\": [\n        {\n            \"id\": 2,\n            \"no\": \"ChickenParmesan\",\n            \"name\": \"Chicken Parmesan\",\n            \"summary\": \"Breaded chicken breast topped with marinara sauce and melted cheese.\",\n            \"price\": 15.49,\n            \"imageUrl\": \"https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q2hpY2tlbiUyMFBhcm1lc2FufGVufDB8fDB8fHww\",\n            \"quantity\": 1\n        },\n        {\n            \"id\": 4,\n            \"no\": \"SushiRoll\",\n            \"name\": \"Sushi Roll\",\n            \"summary\": \"Assorted sushi rolls with fresh fish, avocado, and rice.\",\n            \"price\": 18.99,\n            \"imageUrl\": \"https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U3VzaGklMjBSb2xsfGVufDB8fDB8fHww\",\n            \"quantity\": 4\n        }\n    ],\n    \"metadata\": {},\n    \"successRedirectUrl\": \"http://localhost:4200/checkout/confirmation\",\n    \"cancelRedirectUrl\": \"http://localhost:4200/checkout/cancel\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1691,9 +1711,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{paymentUrl}}/payments/create-checkout-session",
+							"raw": "{{apiGateway}}/payments/create-checkout-session",
 							"host": [
-								"{{paymentUrl}}"
+								"{{apiGateway}}"
 							],
 							"path": [
 								"payments",
