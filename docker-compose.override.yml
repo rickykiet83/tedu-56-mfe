@@ -26,8 +26,6 @@ services:
       - tedu_mysql_data:/var/lib/mysql
     ports:
       - "3307:3306"
-    expose:
-      - 3306
 
   #customerdb: postgres
   customerdb:
@@ -145,7 +143,7 @@ services:
       - ASPNETCORE_URLS=http://+:80
       - "DatabaseSettings:ConnectionString=Server=tedu_customerdb;Database=CustomerDb;User Id=admin;Password=admin1234"
       - "HangFireSettings:Storage:ConnectionString=Server=tedu_customerdb;Port=5432;Database=CustomerDb;User Id=admin;Password=admin1234"
-      - "StripeConfig:ApiKey=YOUR_STRIPE_API_KEY"
+      - "StripeConfig:ApiKey=YOUR_API_KEY"
     depends_on:
       - customerdb
     ports:
@@ -278,7 +276,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
-      - "StripeConfig:ApiKey=YOUR_STRIPE_API_KEY"
+      - "StripeConfig:ApiKey=YOUR_API_KEY"
+      - "ServiceUrls:Customer=http://customer.api"
     ports:
       - "6011:80"
     restart: always

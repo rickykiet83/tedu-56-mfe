@@ -22,6 +22,6 @@ Before starting, ensure you have the following installed on your machine:
 - Trust the file: `dotnet dev-certs https --trust`
 
 ## STEP 2: How to run microservices api:
-- At the root folder, run command: `docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d --remove-orphans`
+- At the root folder, run command: `docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d --remove-orphans` or `docker compose -f docker-compose.yml -f docker-compose.override.yml up -d --remove-orphans`
 - Open docker desktop and maker sure all the services are up and running
 - Open browser and navigate to [Web Health Status](http://localhost:6010/healthchecks-ui#/healthchecks)
