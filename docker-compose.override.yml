@@ -278,6 +278,7 @@ services:
       - ASPNETCORE_URLS=http://+:80
       - "StripeConfig:ApiKey=YOUR_API_KEY"
       - "ServiceUrls:Customer=http://customer.api"
+      - "ServiceUrls:Basket=http://basket.api"
     ports:
       - "6011:80"
     restart: always
