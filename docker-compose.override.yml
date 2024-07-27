@@ -3,7 +3,7 @@ services:
 
   #orderdb: sql server
   orderdb:
-    container_name: tedu_orderdb
+    container_name: tedu_order_db
     environment:
       SA_PASSWORD: "Passw0rd!"
       ACCEPT_EULA: "Y"
@@ -15,7 +15,7 @@ services:
 
   # productdb: mysql
   productdb:
-    container_name: tedu_productdb
+    container_name: tedu_product_db
     ## do not use this command in Windows
     # command: [ "--default-authentication-plugin=mysql_native_password" ]
     environment:
@@ -29,7 +29,7 @@ services:
 
   #customerdb: postgres
   customerdb:
-    container_name: tedu_customerdb
+    container_name: tedu_customer_db
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin1234
@@ -42,14 +42,14 @@ services:
 
   #basketdb: redis
   basketdb:
-    container_name: tedu_basketdb
+    container_name: tedu_basket_db
     restart: always
     ports:
       - "6379:6379"
 
   #inventorydb: mongo
   inventorydb:
-    container_name: tedu_inventorydb
+    container_name: tedu_inventory_db
     restart: always
     ports:
       - "27017:27017"
@@ -57,7 +57,7 @@ services:
       - tedu_mongo_data:/data/db
 
   hangfiredb:
-    container_name: tedu_hangfiredb
+    container_name: tedu_hangfire_db
     ports:
       - '27018:27017'
     volumes:
@@ -68,7 +68,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: 'admin'
 
   teduidentitydb:
-    container_name: tedu_identitydb
+    container_name: tedu_identity_db
     environment:
       SA_PASSWORD: 'Passw0rd!'
       ACCEPT_EULA: 'Y'
@@ -126,7 +126,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
-      - "DatabaseSettings:ConnectionString=Server=tedu_productdb;Database=ProductDB;Uid=root;Pwd=PassWOrd"
+      - "DatabaseSettings:ConnectionString=Server=tedu_product_db;Database=ProductDB;Uid=root;Pwd=PassWOrd"
       - "ApiConfiguration:ApiBaseUrl=http://product.api"
       - "ApiConfiguration:IdentityServerBaseUrl=http://localhost:6001"
       - "ApiConfiguration:IssuerUri=http://identity.api"
@@ -141,8 +141,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
-      - "DatabaseSettings:ConnectionString=Server=tedu_customerdb;Database=CustomerDb;User Id=admin;Password=admin1234"
-      - "HangFireSettings:Storage:ConnectionString=Server=tedu_customerdb;Port=5432;Database=CustomerDb;User Id=admin;Password=admin1234"
+      - "DatabaseSettings:ConnectionString=Server=tedu_customer_db;Database=CustomerDb;User Id=admin;Password=admin1234"
+      - "HangFireSettings:Storage:ConnectionString=Server=tedu_customer_db;Port=5432;Database=CustomerDb;User Id=admin;Password=admin1234"
       - "StripeConfig:ApiKey=YOUR_API_KEY"
     depends_on:
       - customerdb
@@ -172,7 +172,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
-      - "DatabaseSettings:ConnectionString=Server=tedu_orderdb;Database=OrderDb;User Id=sa;Password=Passw0rd!;Multipleactiveresultsets=true;TrustServerCertificate=true;Connection Timeout=30;"
+      - "DatabaseSettings:ConnectionString=Server=tedu_order_db;Database=OrderDb;User Id=sa;Password=Passw0rd!;Multipleactiveresultsets=true;TrustServerCertificate=true;Connection Timeout=30;"
       - "EventBusSettings:HostAddress=amqp://guest:guest@tedurabbitmq:5672"
     depends_on:
       - orderdb
@@ -259,7 +259,7 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/tedu-idp.pfx
       - ASPNETCORE_URLS=http://+:80;https://+:443
       - ASPNETCORE_HTTPS_PORT=7001
-      - 'ConnectionStrings:IdentitySqlConnection=Server=teduidentitydb;Database=TeduIdentity;User Id=sa;Password=Passw0rd!;Multipleactiveresultsets=true;TrustServerCertificate=true;Connection Timeout=30;'
+      - 'ConnectionStrings:IdentitySqlConnection=Server=tedu_identity_db;Database=TeduIdentity;User Id=sa;Password=Passw0rd!;Multipleactiveresultsets=true;TrustServerCertificate=true;Connection Timeout=30;'
       - 'IdentityServer:BaseUrl=http://localhost:6001'
       - 'IdentityServer:IssuerUri=http://identity.api'
     volumes:
@@ -286,9 +286,10 @@ services:
     restart: always
 
   webstatus:
-    container_name: tedu_webstatus
+    container_name: tedu_web_status
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Local
+      - ASPNETCORE_URLS=http://+:80
       - HealthChecksUI__HealthChecks__0__Name=Product Health Check
       - HealthChecksUI__HealthChecks__0__Uri=http://product.api/hc
       - HealthChecksUI__HealthChecks__1__Name=Customer Health Check
@@ -303,5 +304,7 @@ services:
       - HealthChecksUI__HealthChecks__5__Uri=http://hangfire.api/hc
       - HealthChecksUI__HealthChecks__6__Name=Identity Health Check
       - HealthChecksUI__HealthChecks__6__Uri=http://identity.api/hc
+      - HealthChecksUI__HealthChecks__7__Name=Payment Health Check
+      - HealthChecksUI__HealthChecks__7__Uri=http://payment.api/hc
     ports:
       - "6010:80"
