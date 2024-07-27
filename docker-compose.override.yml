@@ -277,6 +277,8 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
       - "StripeConfig:ApiKey=YOUR_API_KEY"
+      - "AllowOrigins=http://localhost:4200, http://localhost:4201, http://localhost:4202, http://localhost:4203"
+      - "ApiKey=35b11635-2ad2-4e43-9839-3d6dfef8f27d"
       - "ServiceUrls:Customer=http://customer.api"
       - "ServiceUrls:Basket=http://basket.api"
     ports:

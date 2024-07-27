@@ -118,7 +118,7 @@
 							"variable": [
 								{
 									"key": "no",
-									"value": "ChocolateCake"
+									"value": "ChickenParmesan"
 								}
 							]
 						}
@@ -320,7 +320,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "73"
 								}
 							]
 						}
@@ -347,7 +347,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    // \"stripeCustomerId\": \"cus_QVpXXLJ5C8H6QU\",\n    \"firstName\": \"K\",\n    \"lastName\": \"Pham\",\n    \"emailAddress\": \"tedu1@yopmail.com\",\n    \"phone\": \"+6112345678\",\n    \"address\": {\n        \"country\": \"Australia\",\n        \"city\": \"Wollongong\",\n        \"street\": \"Fake Address Line 1\",\n        \"zip\": \"2500\",\n        \"state\": \"NSW\"\n    },\n    \"shipping\": {\n        \"country\": \"Australia\",\n        \"city\": \"Wollongong\",\n        \"street\": \"Fake Address Line 2\",\n        \"zip\": \"2500\",\n        \"state\": \"NSW\"\n    }\n}",
+							"raw": "{\n    \"stripeCustomerId\": \"cus_QVxy19sxZhr4jY\",\n    \"firstName\": \"K\",\n    \"lastName\": \"Pham\",\n    \"emailAddress\": \"tedu@yopmail.com\",\n    \"phone\": \"+6112345678\",\n    \"address\": {\n        \"country\": \"Australia\",\n        \"city\": \"Wollongong\",\n        \"street\": \"Fake Address Line 1\",\n        \"zip\": \"2500\",\n        \"state\": \"NSW\"\n    },\n    \"shipping\": {\n        \"country\": \"Australia\",\n        \"city\": \"Wollongong\",\n        \"street\": \"Fake Address Line 2\",\n        \"zip\": \"2500\",\n        \"state\": \"NSW\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -386,7 +386,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"K\",\n    \"lastName\": \"Pham\",\n    \"stripeCustomerId\": \"cus_QVawztYxeuYZe7\",\n    \"address\": {\n        \"country\": \"AU\",\n        \"city\": \"Wollongong\",\n        \"line1\": \"Wollongong Central\",\n        \"line2\": \"\",\n        \"postal_code\": \"2500\",\n        \"state\": \"NSW\"\n    },\n    \"phone\": \"+6112345678\",\n    \"shipping\": {\n        \"country\": \"AU\",\n        \"city\": \"Wollongong\",\n        \"line1\": \"Wollongong Central\",\n        \"line2\": \"\",\n        \"postal_code\": \"2500\",\n        \"state\": \"NSW\"\n    }\n}",
+							"raw": "{\n    \"firstName\": \"Kiet\",\n    \"lastName\": \"Pham\",\n    \"phone\": \"123456789\",\n    \"address\": {\n        \"country\": \"Australia\",\n        \"city\": \"Wollongong\",\n        \"street\": \"Fake Address Line 1!!\",\n        \"zip\": \"2500\",\n        \"state\": \"NSW\"\n    },\n    \"shipping\": {\n        \"country\": \"Australia\",\n        \"city\": \"Wollongong\",\n        \"street\": \"Fake Address Line 2!!\",\n        \"zip\": \"2500\",\n        \"state\": \"NSW\"\n    },\n    \"stripeCustomerId\": \"cus_QVxy19sxZhr4jY\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -405,7 +405,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "58"
+									"value": "73"
 								}
 							]
 						}
@@ -473,9 +473,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{apiGateway}}/baskets/:username",
+							"raw": "{{basketApiUrl}}/baskets/:username",
 							"host": [
-								"{{apiGateway}}"
+								"{{basketApiUrl}}"
 							],
 							"path": [
 								"baskets",
@@ -484,7 +484,7 @@
 							"variable": [
 								{
 									"key": "username",
-									"value": "tedu"
+									"value": "tedu@yopmail.com"
 								}
 							]
 						}
@@ -511,7 +511,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"userName\": \"tedu\",\n  \"emailAddress\": \"tedu@yopmail.com\",\n  \"items\": [\n    {\n      \"quantity\": 1,\n      \"itemPrice\": 1000,\n      \"itemNo\": \"ChocolateCake\",\n      \"itemName\": \"Chocolate Cake\"\n    }\n  ]\n}",
+							"raw": "{\n  \"userName\": \"tedu@yopmail.com\",\n  \"emailAddress\": \"tedu@yopmail.com\",\n  \"items\": [\n    {\n      \"quantity\": 2,\n      \"itemPrice\": 20.99,\n      \"itemNo\": \"ChickenParmesan\",\n      \"itemName\": \"Chicken Parmesan\"\n    }\n  ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -550,7 +550,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"userName\": \"tedu\",\n  \"firstName\": \"Kiet\",\n  \"lastName\": \"Pham\",\n  \"emailAddress\": \"kietpham.dev@example.com\",\n  \"shippingAddress\": \"Wollongong, Australia\",\n  \"invoiceAddress\": \"Sydney, Australia\"\n}",
+							"raw": "{\n  \"userName\": \"tedu@yopmail.com\",\n  \"firstName\": \"Kiet\",\n  \"lastName\": \"Pham\",\n  \"shippingAddress\": \"Wollongong, Australia\",\n  \"invoiceAddress\": \"Sydney, Australia\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -558,9 +558,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{apiGateway}}/baskets/checkout/:username",
+							"raw": "{{basketApiUrl}}/baskets/checkout/:username",
 							"host": [
-								"{{apiGateway}}"
+								"{{basketApiUrl}}"
 							],
 							"path": [
 								"baskets",
@@ -570,7 +570,7 @@
 							"variable": [
 								{
 									"key": "username",
-									"value": "tedu"
+									"value": "tedu@yopmail.com"
 								}
 							]
 						}
@@ -596,9 +596,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{apiGateway}}/baskets/:username",
+							"raw": "{{basketApiUrl}}/baskets/:username",
 							"host": [
-								"{{apiGateway}}"
+								"{{basketApiUrl}}"
 							],
 							"path": [
 								"baskets",
@@ -607,7 +607,7 @@
 							"variable": [
 								{
 									"key": "username",
-									"value": "tedu"
+									"value": "tedu@yopmail.com"
 								}
 							]
 						}
@@ -651,7 +651,7 @@
 							"variable": [
 								{
 									"key": "username",
-									"value": "tedu"
+									"value": "tedu@yopmail.com"
 								}
 							]
 						}
@@ -846,7 +846,7 @@
 							"variable": [
 								{
 									"key": "itemNo",
-									"value": "ChocolateCake"
+									"value": "ChickenParmesan"
 								}
 							]
 						}
@@ -1079,7 +1079,7 @@
 							"variable": [
 								{
 									"key": "itemId",
-									"value": "6642eec6666a85bb2e395d5e"
+									"value": "669f8bc742638f73556759af"
 								}
 							]
 						}
@@ -1192,7 +1192,7 @@
 							"variable": [
 								{
 									"key": "username",
-									"value": "tedu"
+									"value": "tedu@yopmail.com"
 								}
 							]
 						}
@@ -1700,10 +1700,16 @@
 					"name": "Create Checkout Session",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "tedu-api-key",
+								"value": "35b11635-2ad2-4e43-9839-3d6dfef8f27d",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"customer\": {\n        \"firstName\": \"Tedu\",\n        \"lastName\": \"Tedu\",\n        \"email\": \"tedu@yopmail.com\",\n        \"phone\": \"04123456789\",\n        \"address\": {\n            \"country\": \"Australia\",\n            \"city\": \"Wollongong\",\n            \"street\": \"Fake Address\",\n            \"zip\": \"2500\",\n            \"state\": \"NSW\"\n        },\n        \"shipping\": {\n            \"country\": \"Australia\",\n            \"city\": \"Wollongong\",\n            \"street\": \"Fake Address\",\n            \"zip\": \"2500\",\n            \"state\": \"NSW\"\n        }\n    },\n    \"products\": [\n        {\n            \"id\": 2,\n            \"no\": \"ChickenParmesan\",\n            \"name\": \"Chicken Parmesan\",\n            \"summary\": \"Breaded chicken breast topped with marinara sauce and melted cheese.\",\n            \"price\": 20.99,\n            \"imageUrl\": \"https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q2hpY2tlbiUyMFBhcm1lc2FufGVufDB8fDB8fHww\",\n            \"quantity\": 2\n        }\n    ],\n    \"tax\": 4.198,\n    \"deliveryFee\": 10.00,\n    \"metadata\": {},\n    \"successRedirectUrl\": \"http://localhost:4200/checkout/confirmation\",\n    \"cancelRedirectUrl\": \"http://localhost:4200/checkout/cancel\"\n}",
+							"raw": "{\n    \"customer\": {\n        \"firstName\": \"Tedu\",\n        \"lastName\": \"Tedu\",\n        \"email\": \"tedu@yopmail.com\",\n        \"phone\": \"04123456789\",\n        \"address\": {\n            \"country\": \"Australia\",\n            \"city\": \"Wollongong\",\n            \"street\": \"Fake Address\",\n            \"zip\": \"2500\",\n            \"state\": \"NSW\"\n        },\n        \"shipping\": {\n            \"country\": \"Australia\",\n            \"city\": \"Wollongong\",\n            \"street\": \"Fake Address\",\n            \"zip\": \"2500\",\n            \"state\": \"NSW\"\n        }\n    },\n    \"products\": [\n        { \n            \"id\": 2,\n            \"no\": \"ChickenParmesan\",\n            \"name\": \"Chicken Parmesan\",\n            \"summary\": \"Breaded chicken breast topped with marinara sauce and melted cheese.\",\n            \"price\": 20.99,\n            \"imageUrl\": \"https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q2hpY2tlbiUyMFBhcm1lc2FufGVufDB8fDB8fHww\",\n            \"quantity\": 2\n        }\n    ],\n    \"tax\": 4.198,\n    \"deliveryFee\": 10.00,\n    \"metadata\": {},\n    \"successRedirectUrl\": \"http://localhost:4200/checkout/confirmation\",\n    \"cancelRedirectUrl\": \"http://localhost:4200/checkout/cancel\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1711,12 +1717,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{paymentUrl}}/payments/checkout-sessions",
+							"raw": "{{paymentUrl}}/checkout-sessions",
 							"host": [
 								"{{paymentUrl}}"
 							],
 							"path": [
-								"payments",
 								"checkout-sessions"
 							]
 						}
@@ -1730,7 +1735,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "tedu-api-key",
+								"value": "35b11635-2ad2-4e43-9839-3d6dfef8f27d",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"customer\": {\n        \"firstName\": \"Kiet\",\n        \"lastName\": \"Pham\",\n        \"email\": \"kietpham.dev@gmail.com\",\n        \"phone\": \"04123456789\",\n        \"address\": {\n            \"country\": \"Australia\",\n            \"city\": \"Wollongong\",\n            \"street\": \"Fake Address\",\n            \"zip\": \"2500\",\n            \"state\": \"NSW\"\n        },\n        \"shipping\": {\n            \"country\": \"Australia\",\n            \"city\": \"Wollongong\",\n            \"street\": \"Fake Address\",\n            \"zip\": \"2500\",\n            \"state\": \"NSW\"\n        }\n    },\n    \"products\": [\n        {\n            \"id\": 2,\n            \"no\": \"ChickenParmesan\",\n            \"name\": \"Chicken Parmesan\",\n            \"summary\": \"Breaded chicken breast topped with marinara sauce and melted cheese.\",\n            \"price\": 15.49,\n            \"imageUrl\": \"https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q2hpY2tlbiUyMFBhcm1lc2FufGVufDB8fDB8fHww\",\n            \"quantity\": 1\n        },\n        {\n            \"id\": 4,\n            \"no\": \"SushiRoll\",\n            \"name\": \"Sushi Roll\",\n            \"summary\": \"Assorted sushi rolls with fresh fish, avocado, and rice.\",\n            \"price\": 18.99,\n            \"imageUrl\": \"https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U3VzaGklMjBSb2xsfGVufDB8fDB8fHww\",\n            \"quantity\": 4\n        }\n    ],\n    \"metadata\": {},\n    \"successRedirectUrl\": \"http://localhost:4200/checkout/confirmation\",\n    \"cancelRedirectUrl\": \"http://localhost:4200/checkout/cancel\"\n}",
@@ -1741,19 +1752,69 @@
 							}
 						},
 						"url": {
-							"raw": "{{apiGateway}}/payments/checkout-sessions/:sessionId",
+							"raw": "{{paymentUrl}}/checkout-sessions/:sessionId",
 							"host": [
-								"{{apiGateway}}"
+								"{{paymentUrl}}"
 							],
 							"path": [
-								"payments",
 								"checkout-sessions",
 								":sessionId"
 							],
 							"variable": [
 								{
 									"key": "sessionId",
-									"value": "cs_test_b12SCPdihUpQX3pUT0Cqj1oq27mOYxBxZ8aDKIPePxzBA8fuxZopEl6zR8"
+									"value": "cs_test_a1vCFYrskhvb47EPDlZdHH7C739xiMhaeDcQXWInM0KqZInlaOhuilph8m"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payment History",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tedu-api-key",
+								"value": "35b11635-2ad2-4e43-9839-3d6dfef8f27d",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer\": {\n        \"firstName\": \"Kiet\",\n        \"lastName\": \"Pham\",\n        \"email\": \"kietpham.dev@gmail.com\",\n        \"phone\": \"04123456789\",\n        \"address\": {\n            \"country\": \"Australia\",\n            \"city\": \"Wollongong\",\n            \"street\": \"Fake Address\",\n            \"zip\": \"2500\",\n            \"state\": \"NSW\"\n        },\n        \"shipping\": {\n            \"country\": \"Australia\",\n            \"city\": \"Wollongong\",\n            \"street\": \"Fake Address\",\n            \"zip\": \"2500\",\n            \"state\": \"NSW\"\n        }\n    },\n    \"products\": [\n        {\n            \"id\": 2,\n            \"no\": \"ChickenParmesan\",\n            \"name\": \"Chicken Parmesan\",\n            \"summary\": \"Breaded chicken breast topped with marinara sauce and melted cheese.\",\n            \"price\": 15.49,\n            \"imageUrl\": \"https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q2hpY2tlbiUyMFBhcm1lc2FufGVufDB8fDB8fHww\",\n            \"quantity\": 1\n        },\n        {\n            \"id\": 4,\n            \"no\": \"SushiRoll\",\n            \"name\": \"Sushi Roll\",\n            \"summary\": \"Assorted sushi rolls with fresh fish, avocado, and rice.\",\n            \"price\": 18.99,\n            \"imageUrl\": \"https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U3VzaGklMjBSb2xsfGVufDB8fDB8fHww\",\n            \"quantity\": 4\n        }\n    ],\n    \"metadata\": {},\n    \"successRedirectUrl\": \"http://localhost:4200/checkout/confirmation\",\n    \"cancelRedirectUrl\": \"http://localhost:4200/checkout/cancel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{paymentUrl}}/payments/history?email=tedu@yopmail.com&limit=100",
+							"host": [
+								"{{paymentUrl}}"
+							],
+							"path": [
+								"payments",
+								"history"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "tedu@yopmail.com"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "paymentIntentId",
+									"value": "pi_3Pep4iAmFcgLVFNz1umKoFnI",
+									"disabled": true
 								}
 							]
 						}
