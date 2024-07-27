@@ -1704,7 +1704,8 @@
 							{
 								"key": "tedu-api-key",
 								"value": "{{tedu-api-key}}",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
@@ -1717,11 +1718,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{paymentUrl}}/checkout-sessions",
+							"raw": "{{paymentUrl}}/payments/checkout-sessions",
 							"host": [
 								"{{paymentUrl}}"
 							],
 							"path": [
+								"payments",
 								"checkout-sessions"
 							]
 						}
