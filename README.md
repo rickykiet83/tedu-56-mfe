@@ -24,7 +24,11 @@ Before starting, ensure you have the following installed on your machine:
 ## STEP 2: How to run microservices api:
 - At the root folder,
   - Re pull images command: `docker-compose pull` or `docker compose pull`
-  - Run containers: `docker-compose -f docker-compose.yml -f docker-compose.override.yml -p tedu_foody_microfrontend up -d --remove-orphans` or `docker compose -f docker-compose.yml -f docker-compose.override.yml -p tedu_foody_microfrontend up -d --remove-orphans`
-  - Run and rebuild containers: `docker-compose -f docker-compose.yml -f docker-compose.override.yml -p tedu_foody_microfrontend up -d --remove-orphans --build` or `docker compose -f docker-compose.yml -f docker-compose.override.yml -p tedu_foody_microfrontend up -d --remove-orphans --build`
+  - Run containers (choose one):
+    - `docker-compose -f docker-compose.yml -f docker-compose.override.yml -p tedu_foody_microfrontend up -d --remove-orphans`
+    - `docker compose -f docker-compose.yml -f docker-compose.override.yml -p tedu_foody_microfrontend up -d --remove-orphans`
+  - Run and rebuild containers (choose one):
+    - `docker-compose -f docker-compose.yml -f docker-compose.override.yml -p tedu_foody_microfrontend up -d --remove-orphans --build`
+    - `docker compose -f docker-compose.yml -f docker-compose.override.yml -p tedu_foody_microfrontend up -d --remove-orphans --build`
 - Open docker desktop and maker sure all the services are up and running
 - Open browser and navigate to [Web Health Status](http://localhost:6010/healthchecks-ui#/healthchecks)

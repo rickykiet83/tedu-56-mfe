@@ -47,6 +47,9 @@ services:
   basket.api:
     image: kietphamdev/tedu-microservice-basket
 
+  basket.worker:
+    image: kietphamdev/tedu-microservice-basket-worker
+
   ordering.api:
     image: kietphamdev/tedu-microservice-ordering
 

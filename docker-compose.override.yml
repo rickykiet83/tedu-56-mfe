@@ -138,6 +138,7 @@ services:
 
   customer.api:
     container_name: tedu_customer.api
+
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
@@ -166,6 +167,19 @@ services:
       - rabbitmq
     ports:
       - "6004:80"
+    restart: always
+
+  basket.worker:
+    container_name: tedu_basket.worker
+    environment:
+      - DOTNET_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "EventBusSettings:HostAddress=amqp://guest:guest@tedurabbitmq:5672"
+      - "EventBusSettings:ServiceName=Basket.Worker"
+      - "ServiceUrls:Basket=http://basket.api"
+    depends_on:
+      - basketdb
+      - rabbitmq
     restart: always
 
   ordering.api:
@@ -279,9 +293,9 @@ services:
       - ASPNETCORE_URLS=http://+:80
       - "StripeConfig:ApiKey=YOUR_API_KEY"
       - "AllowOrigins=http://localhost:4200, http://localhost:4201, http://localhost:4202, http://localhost:4203"
-      - "ApiKey=35b11635-2ad2-4e43-9839-3d6dfef8f27d"
+      - "EventBusSettings:HostAddress=amqp://guest:guest@tedurabbitmq:5672"
+      - "ApiKey=35b11635-2ad2-4e43-9839-3d6dfef8f27d" # DO NOT CHANGE THIS
       - "ServiceUrls:Customer=http://customer.api"
-      - "ServiceUrls:Basket=http://basket.api"
     ports:
       - "6011:80"
     restart: always
