@@ -23,6 +23,10 @@ Before starting, ensure you have the following installed on your machine:
 
 ## STEP 2: How to run microservices api:
 - At the root folder,
+  - Create an .env file and replace your Stripe API Key:
+  ```dotenv
+  StripeConfig_ApiKey=YOUR_STRIPE_API_KEY
+  ```
   - Re pull images command: `docker-compose pull` or `docker compose pull`
   - Run containers (choose one):
     - `docker-compose -f docker-compose.yml -f docker-compose.override.yml -p tedu_foody_microfrontend up -d --remove-orphans`

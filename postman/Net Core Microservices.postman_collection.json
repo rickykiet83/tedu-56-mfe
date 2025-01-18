@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cbd881ce-631e-4f1f-82c4-d87a71a9f2cb",
+		"_postman_id": "dff989b8-9c56-4f53-979b-351c45c3d4a5",
 		"name": ".Net Core Microservices",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "1393969"
@@ -696,7 +696,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"userName\": \"tedu\",\n    \"totalPrice\": 100,\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"emailAddress\": \"tedu@yopmail.com\",\n    \"shippingAddress\": \"Wollongong, Australia\",\n    \"invoiceAddress\": \"Sydney, Australia\"\n}",
+							"raw": "{\n    \"userName\": \"tedu@yopmail.com\",\n    \"totalPrice\": 100,\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"emailAddress\": \"tedu@yopmail.com\",\n    \"shippingAddress\": \"Wollongong, Australia\",\n    \"invoiceAddress\": \"Sydney, Australia\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1079,7 +1079,7 @@
 							"variable": [
 								{
 									"key": "itemId",
-									"value": "669f8bc742638f73556759af"
+									"value": "678201ab483217e47fa03402"
 								}
 							]
 						}
@@ -1704,8 +1704,7 @@
 							{
 								"key": "tedu-api-key",
 								"value": "{{tedu-api-key}}",
-								"type": "text",
-								"disabled": true
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1754,9 +1753,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{paymentUrl}}/payments/checkout-sessions/:sessionId",
+							"raw": "{{apiGateway}}/payments/checkout-sessions/:sessionId",
 							"host": [
-								"{{paymentUrl}}"
+								"{{apiGateway}}"
 							],
 							"path": [
 								"payments",
@@ -1766,7 +1765,7 @@
 							"variable": [
 								{
 									"key": "sessionId",
-									"value": "cs_test_a1j8TrHagVOuyVxC9UZUSFYrqAV28bwfHVkw4p3ZJd4MLFC9aNJWpuhGMf"
+									"value": "cs_test_a1bjY6lrJ8SNOsCcxF1qlOAXmuwgnJmPysHgFoaHMnNX9JT7dCDppt54Yg"
 								}
 							]
 						}
